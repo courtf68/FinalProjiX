@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="card-body p-5">
+           <h1 class="card-title text-center mt-3">Project selected: <!-- error here bc proj isnt class of
+               feedback... import it or dont use? - {{project.id}}--> </h1>
+           <hr>
+   <form>
+       <div class="form-group text-center">
+        <label for="inputField">We'd love to hear from you!</label>
+       <input type="input" class="form-control" id="inputField" aria-describedby="input here" placeholder="Contact information here">
+     <!-- add multiple input fields here, name, email, message ... but isnt this just comments/feedback, discuss-->
+        </div>
+        <button type="submit" (click)="onSubmit()" class="btn btn-primary float-right">Submit</button>
+   </form>
+       </div>
+</div>
