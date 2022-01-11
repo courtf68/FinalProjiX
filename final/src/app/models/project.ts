@@ -1,4 +1,4 @@
 export class Project{
-    id?:number;
+    id?:string;
     title?:string;
 }
