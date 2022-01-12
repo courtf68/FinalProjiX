@@ -7,6 +7,7 @@ import { NavBarComponentComponent } from './components/nav-bar-component/nav-bar
 import { GridLayoutComponent } from './components/grid-layout/grid-layout.component';
 import { BackgroundComponent } from './components/background/background.component';
 import { FeedbackNavbarComponent } from './components/feedback-navbar/feedback-navbar.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FeedbackNavbarComponent } from './components/feedback-navbar/feedback-n
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
