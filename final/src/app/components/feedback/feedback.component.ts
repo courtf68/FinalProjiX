@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { feedForm } from 'src/app/models/feedback';
+import { Project } from 'src/app/models/project';
+import { GridLayoutComponent } from '../grid-layout/grid-layout.component';
 
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.css']
 })
-export class FeedbackComponent implements OnInit {
-  
+export class FeedbackComponent implements OnInit{
+
+  @Input() receivedId?:string;
+
   entry: feedForm = new feedForm();
   submitted: boolean = false; 
 

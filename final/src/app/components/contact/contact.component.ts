@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { conForm } from 'src/app/models/contact';
 
 @Component({
@@ -7,6 +7,8 @@ import { conForm } from 'src/app/models/contact';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+
+  @Input() receivedId?:string;
 
   entry: conForm = new conForm();
   submitted: boolean = false; 

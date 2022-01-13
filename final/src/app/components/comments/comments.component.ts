@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { comForm } from 'src/app/models/comments';
 
 @Component({
@@ -7,6 +7,8 @@ import { comForm } from 'src/app/models/comments';
   styleUrls: ['./comments.component.css']
 })
 export class CommentsComponent implements OnInit {
+
+  @Input() receivedId?:string;
 
   entry: comForm = new comForm();
   submitted: boolean = false; 
