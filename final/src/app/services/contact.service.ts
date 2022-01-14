@@ -7,13 +7,13 @@ import { Contact } from 'src/app/models/contact';
 })
 
 export class ContactService {
-  url: string = 'http://localhost:4200';
+  url: string = 'http://localhost:3000';
 
   constructor(private http: HttpClient) {} 
 
   addContactToDb(contact:Contact) {
     this.http
-      .post(this.url + '/feed/contact', {
+      .post(this.url + '/contact/contact', {
         id: contact.id,
         content: contact.content,
       })
@@ -24,17 +24,17 @@ export class ContactService {
 
 
 getContact() {
-  return this.http.get(this.url + '/feed/contact').toPromise();
+  return this.http.get(this.url + '/contact/contacts').toPromise();
 } 
 
 updateContactOnDb(contact: Contact) {
-  this.http.put(this.url + '/feed/' + contact.id, {
+  this.http.put(this.url + '/contact/' + contact.id, {
     id: contact.id,
     content: contact.content
   }).toPromise();
 } 
 deleteContactOnDb(contact: Contact) {
-  const deleteUrl = this.url + '/feed/' + contact.id;
+  const deleteUrl = this.url + '/contact/' + contact.id;
   return this.http.delete(deleteUrl).toPromise();
 }
 }

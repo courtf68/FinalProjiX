@@ -34,11 +34,11 @@ export class ContactComponent implements OnInit {
 
       let res: any = await this.contactService.getContact();
 
-      for (let i = 0; i<res.contacts.length; i++){
+      for (let i = 0; i<res.length; i++){
         const contact = new Contact();
 
-        contact.id = res.contacts[i]._id;
-        contact.content = res.contacts[i].content;
+        contact.id = res.posts[i]._id;
+        contact.content = res.posts[i].content;
 
         this.contacts.push(contact);
       }

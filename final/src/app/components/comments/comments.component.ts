@@ -38,11 +38,11 @@ export class CommentsComponent implements OnInit {
 
       let res: any = await this.commentService.getComments();
 
-      for (let i = 0; i<res.comments.length; i++){
+      for (let i = 0; i<res.length; i++){
         const comment = new Comment();
 
-        comment.id = res.comments[i]._id;
-        comment.content = res.comments[i].content;
+        comment.id = res.posts[i]._id;
+        comment.content = res.posts[i].content;
         this.comments.push(comment);
       }
     }

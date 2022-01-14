@@ -41,12 +41,13 @@ export class FeedbackComponent implements OnInit{
       this.feedbacks = []
 
       let res: any = await this.feedbackService.getFeedback();
+      console.log('This is the res from feedback call', res);
 
-      for (let i = 0; i<res.feedbacks.length; i++){
+      for (let i = 0; i<res.posts.length; i++){
         const feedback = new Feedback();
 
-        feedback.id = res.feedbacks[i]._id;
-        feedback.content = res.feedbacks[i].content;
+        feedback.id = res.posts[i]._id;
+        feedback.content = res.posts[i].content;
 
         this.feedbacks.push(feedback);
       }

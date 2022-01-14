@@ -30,6 +30,6 @@ mongoose
   )
   .then(() => {
     console.log('Connected to MongoDB');
-    app.listen(4200);
+    app.listen(3000);
   })
   .catch((err) => console.log(err));
