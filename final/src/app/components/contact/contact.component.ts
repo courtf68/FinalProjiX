@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Contact } from 'src/app/models/contact';
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +10,8 @@ export class ContactComponent implements OnInit {
 
   @Input() receivedId?:string;
 
-  contact?:string;
+  contact?:Contact = new Contact();
+  contacts?:Contact[] = [];
 
   constructor() { }
 
@@ -17,6 +19,18 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit(){
+
+  }
+
+  viewContact(){
+    
+  }
+
+  editContact(contact:Contact){
+
+  }
+
+  deleteContact(contact:Contact){
 
   }
 

@@ -42,3 +42,62 @@
    </div>
  </div>
 </div>
+
+<div class="card mt-5">
+  <div class="card-title text-center mt-3">
+    <h3>Posts from MongoDB</h3>
+  </div>
+
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-secondary" (click)="viewContact()">
+        View Contact
+      </button>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <hr />
+
+    <div class="row" *ngIf="this.contacts?.length == 0">
+      <div class="col text-center">No Posts</div>
+    </div>
+
+    <div class="accordion" id="accordionExample" *ngFor="let contact of contacts">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#A' + contact.id"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            {{ contact.content }}
+          </button>
+        </h2>
+        <div
+          id="{{ 'A' + contact.id }}"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            <strong> {{ contact.content }} </strong>
+
+            <div class="row">
+              <div class="col-12 d-flex justify-content-center">
+                <button class="btn btn-primary me-1" (click)="editContact(contact)">
+                  EDIT
+                </button>
+                <button class="btn btn-danger ms-1" (click)="deleteContact(contact)">
+                  DELETE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

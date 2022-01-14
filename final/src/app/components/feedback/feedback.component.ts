@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Feedback } from 'src/app/models/feedback';
 import { Project } from 'src/app/models/project';
 import { GridLayoutComponent } from '../grid-layout/grid-layout.component';
 
@@ -13,7 +14,8 @@ export class FeedbackComponent implements OnInit{
   @Input() receivedIndex?:number;
   @Input() projects?:Project[];
 
-  feedback?:string;
+  feedback?:Feedback;
+  feedbacks?:Feedback[] = [];
 
   constructor(private router:Router) { }
 
@@ -25,4 +27,15 @@ export class FeedbackComponent implements OnInit{
     this.router.navigate(['comment']);
   }
 
+  viewFeedback(){
+
+  }
+
+  editFeedback(feedback: Feedback){
+
+  }
+
+  deleteFeedback(feedback:Feedback){
+
+  }
 }

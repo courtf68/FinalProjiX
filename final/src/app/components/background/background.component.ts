@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Project } from 'src/app/models/projects';
+import { Project } from 'src/app/models/project';
 
 @Component({
   selector: 'app-background',
