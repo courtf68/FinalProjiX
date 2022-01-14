@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { conForm } from 'src/app/models/contact';
 
 @Component({
   selector: 'app-contact',
@@ -10,17 +9,15 @@ export class ContactComponent implements OnInit {
 
   @Input() receivedId?:string;
 
-  entry: conForm = new conForm();
-  submitted: boolean = false; 
+  contact?:string;
 
-  onSubmit() { 
-    this.submitted = true;
-    this.entry = new conForm; //reset form
-
-  }
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+
   }
 
 }

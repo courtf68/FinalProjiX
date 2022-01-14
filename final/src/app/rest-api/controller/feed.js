@@ -21,7 +21,7 @@ exports.getPosts = (req, res, next) => {
 };
 
 exports.createPost = (req, res, next) => {
-const name = req.body.name;
+  const name = req.body.name;
   const title = req.body.title;
   const feedback_content = req.body.feed_backcontent;
   const comment_content = req.body.comment_content;

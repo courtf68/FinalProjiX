@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { comForm } from 'src/app/models/comments';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comments',
@@ -10,17 +10,15 @@ export class CommentsComponent implements OnInit {
 
   @Input() receivedId?:string;
 
-  entry: comForm = new comForm();
-  submitted: boolean = false; 
+  comment?:string;
 
-  onSubmit() { 
-    this.submitted = true;
-    this.entry = new comForm; //reset form
-
-  }
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  nextClicked(){
+    this.router.navigate(['contact']);
   }
 
 }

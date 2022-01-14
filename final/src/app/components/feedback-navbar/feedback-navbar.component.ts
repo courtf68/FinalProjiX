@@ -15,20 +15,20 @@ export class FeedbackNavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  feedbackClicked(){
-    this.router.navigate(['feedback']);
-  }
+  // feedbackClicked(){
+  //   this.router.navigate(['feedback']);
+  // }
 
-  commentClicked(){
-    this.router.navigate(['comment']);
-  }
+  // commentClicked(){
+  //   this.router.navigate(['comment']);
+  // }
 
-  contactClicked(){
-    this.router.navigate(['contact']);
-  }
+  // contactClicked(){
+  //   this.router.navigate(['contact']);
+  // }
 
-  historyClicked(){
-    this.router.navigate(['history']);
-  }
+  // historyClicked(){
+  //   this.router.navigate(['history']);
+  // }
 
 }

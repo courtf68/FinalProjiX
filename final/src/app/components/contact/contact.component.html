@@ -1,4 +1,4 @@
-<div class="text-center w-100" style="background-color: azure; border-radius: 2rem;">
+<div class="text-center w-100 mt-5" style="background-color: azure; border-radius: 2rem;">
 <div class="container">
     <div class="card-body p-5">
            <h3 class="card-title text-center mt-3">Project selected:{{receivedId}} </h3>
@@ -6,11 +6,39 @@
    <form>
        <div class="form-group text-center">
         <label for="inputField">We'd love to hear from you!</label>
-       <input type="input" class="form-control" id="inputField" aria-describedby="input here" placeholder="Contact information here">
+       <input type="input" class="form-control mt-3" [(ngModel)]="contact" id="inputField" aria-describedby="input here" placeholder="Contact information here">
      <!-- add multiple input fields here, name, email, message ... but isnt this just comments/feedback, discuss-->
         </div>
-        <button type="submit" (click)="onSubmit()" class="btn btn-primary float-right">Submit</button>
+        <button type="button" (click)="onSubmit()" class="btn btn-primary float-right mt-3" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop">Submit</button>
    </form>
        </div>
 </div>
+
+ <!-- Modal -->
+ <div class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true">
+   <div class="modal-dialog">
+   
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header">
+         <button
+           type="button"
+           class="btn-close"
+           data-bs-dismiss="modal"
+           aria-label="Close"
+         ></button>
+       </div>
+       <div class="modal-body">
+           <p>Thank you for your feedback! You can check your responses from the History tab.</p> 
+       </div>
+     </div>
+   </div>
+ </div>
 </div>

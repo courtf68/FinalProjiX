@@ -5,4 +5,5 @@ export class Project{
     feedback_content?: string;
     comment_content?:string;
     contact_content?:string;
+    
 }

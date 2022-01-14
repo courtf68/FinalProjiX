@@ -1,17 +1,37 @@
-  <div id="carouselExampleControls" class="carousel slide px-3 py-4" data-ride="carousel" style="background: linear-gradient(to bottom,#d9fbfc, #feffdb);">
-    <div class="carousel-inner d-flex justify-content-center align-items-center">
-      <div>
-        <button type="button" class="col-sm btn-lg btn-block w-40 px-5 py-3 d-block text-center" style="background-color: white; border-radius: 2rem;">
-          <h4>{{projectObjects[index].title}}</h4>
-          <h6 class="mt-3">by {{projectObjects[index].id}}</h6>
-        </button>
-      </div>
+<div
+  id="carouselExampleControls"
+  class="carousel slide px-3 py-4"
+  data-ride="carousel"
+  style="background: linear-gradient(to bottom, #d9fbfc, #feffdb)"
+>
+  <div class="carousel-inner d-flex justify-content-center align-items-center">
+    <div>
+      <button
+        type="button"
+        class="col-sm btn-lg btn-block w-40 px-5 py-3 d-block text-center"
+        style="background-color: white; border-radius: 2rem"
+      >
+        <h4>{{projects[index].title}}</h4>
+        <h6 class="mt-3">by {{projects[index].id}}</h6>
+      </button>
     </div>
-    <a class="carousel-control-prev slide-prev" style="color: black; font-size: 30px; text-decoration: none;" (click)="clickPrev()">
-      <span> < </span>
-    </a>
-    <a class="carousel-control-next slide-next" style="color: black; font-size: 30px; text-decoration: none;" (click)="clickNext()">
-      <span> > </span>
-    </a>
   </div>
-<!-- <app-feedback class="" [receivedId]="projectObjects[index].id"></app-feedback> -->
+  <a
+    class="carousel-control-prev slide-prev"
+    style="color: black; font-size: 30px; text-decoration: none"
+    (click)="clickPrev()"
+  >
+    <span> < </span>
+  </a>
+  <a
+    class="carousel-control-next slide-next"
+    style="color: black; font-size: 30px; text-decoration: none"
+    (click)="clickNext()"
+  >
+    <span> > </span>
+  </a>
+</div>
+
+<div class="container mt-5">
+  <app-feedback [projects]="projects" [receivedIndex]="index"></app-feedback>
+</div>

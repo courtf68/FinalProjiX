@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { feedForm } from 'src/app/models/feedback';
+import { Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
 import { GridLayoutComponent } from '../grid-layout/grid-layout.component';
 
@@ -10,19 +10,19 @@ import { GridLayoutComponent } from '../grid-layout/grid-layout.component';
 })
 export class FeedbackComponent implements OnInit{
 
-  @Input() receivedId?:string;
+  @Input() receivedIndex?:number;
+  @Input() projects?:Project[];
 
-  entry: feedForm = new feedForm();
-  submitted: boolean = false; 
+  feedback?:string;
 
-  onSubmit() { 
-    this.submitted = true;
-    this.entry = new feedForm; //reset form
-
-  }
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+    this.projects = [{id:'Victor', title:"Project 1"}, {id:"Courtney", title:"Project 2"}, {id:"Cameron", title:"Project 3"}];
+  }
+
+  nextClicked(){
+    this.router.navigate(['comment']);
   }
 
 }
