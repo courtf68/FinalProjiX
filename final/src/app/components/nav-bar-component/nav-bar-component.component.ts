@@ -29,7 +29,4 @@ export class NavBarComponentComponent implements OnInit {
     this.router.navigate(['contact']);
   }
 
-  historyClicked(){
-    this.router.navigate(['history']);
-  }
 }

@@ -2,6 +2,7 @@ import { Comment } from 'src/app/models/comment';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
+import { CommentsService } from 'src/app/services/comments.service';
 
 @Component({
   selector: 'app-comments',
@@ -10,17 +11,16 @@ import { Project } from 'src/app/models/project';
 })
 export class CommentsComponent implements OnInit {
 
-  @Input() receivedId?:string;
-  @Input() projects?: Project[];
+  @Input() index:number =0;
+  projects: Project[] = [{id:'Victor', title:"Project 1"}, {id:"Courtney", title:"Project 2"}, {id:"Cameron", title:"Project 3"}];
 
-  comment?:Comment = new Comment();
-  comments?:Comment[] = [];
+  comment:Comment = new Comment();
+  comments:Comment[] = [];
   editing: boolean = false;
 
-  constructor(private router: Router, private commentService: CommentsService) { }
+  constructor(private router: Router, private commentService:CommentsService) { }
 
   ngOnInit(): void {
-    this.projects = [{id:'Victor', title:"Project 1"}, {id:"Courtney", title:"Project 2"}, {id:"Cameron", title:"Project 3"}];
   }
 
   nextClicked(){
@@ -33,7 +33,7 @@ export class CommentsComponent implements OnInit {
     this.comment = new Comment();  
   }
 
-    async fetchFeedback(){
+    async fetchComment(){
       this.comments = []
 
       let res: any = await this.commentService.getComments();
@@ -43,16 +43,9 @@ export class CommentsComponent implements OnInit {
 
         comment.id = res.comments[i]._id;
         comment.content = res.comments[i].content;
-        comment.createdAt = res.commenyts[i].createdAt;
-        comment.updatedAt = res.comments[i].updatedAt;
-
         this.comments.push(comment);
       }
     }
-
-  viewComments(){
-
-  }
 
   editComment(comment: Comment){
     this.editing = true;
@@ -60,12 +53,12 @@ export class CommentsComponent implements OnInit {
   }
 
   async updateComment(){
-    await this.commentService.updateCommentOnDb(this.comment);
+    await this.commentService.updateCommentsOnDb(this.comment);
     this.comment = new Comment();
   }
 
   async deleteComment(comment: Comment){
-    await this.commentService.deletFeedbackOnDb(comment);
+    await this.commentService.deleteCommentsOnDb(comment);
     this.comments = this.comments?.filter((x)=> x.id != comment.id);
   }
 

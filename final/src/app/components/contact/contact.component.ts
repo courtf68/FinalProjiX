@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Contact } from 'src/app/models/contact';
 import { Project } from 'src/app/models/project';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,22 +11,16 @@ import { Project } from 'src/app/models/project';
 })
 export class ContactComponent implements OnInit {
 
-  @Input() receivedId?:string;
-  @Input() projects?:Project[]
+  @Input() index:number = 0;
+  projects:Project[] = [{id:'Victor', title:"Project 1"}, {id:"Courtney", title:"Project 2"}, {id:"Cameron", title:"Project 3"}];
 
-  contact?:Contact = new Contact();
-  contacts?:Contact[] = [];
+  contact:Contact = new Contact();
+  contacts:Contact[] = [];
   editing: boolean = false;
 
-  constructor(private contactService: ContactService) { }
+  constructor(private router:Router, private contactService: ContactService) { }
 
   ngOnInit(): void {
-    this.projects = [{id:'Victor', title:"Project 1"}, {id:"Courtney", title:"Project 2"}, {id:"Cameron", title:"Project 3"}];
-
-  }
-
-  onSubmit(){
-
   }
 
   async addContact(){
@@ -33,26 +29,20 @@ export class ContactComponent implements OnInit {
     this.contact = new Contact();  
   }
 
-    async fetchFeedback(){
+    async fetchContact(){
       this.contacts = []
 
-      let res: any = await this.contactService.getContacts();
+      let res: any = await this.contactService.getContact();
 
       for (let i = 0; i<res.contacts.length; i++){
         const contact = new Contact();
 
         contact.id = res.contacts[i]._id;
         contact.content = res.contacts[i].content;
-        contact.createdAt = res.contacts[i].createdAt;
-        contact.updatedAt = res.contacts[i].updatedAt;
 
         this.contacts.push(contact);
       }
     }
-
-  viewContact(){
-    
-  }
 
   editContact(contact:Contact){
     this.editing = true;
@@ -60,12 +50,12 @@ export class ContactComponent implements OnInit {
   }
 
   async updateContact(){
-    await this.contactService.updateFeedbackOnDb(this.contact);
+    await this.contactService.updateContactOnDb(this.contact);
     this.contact = new Contact();
   }
 
   async deleteContact(contact:Contact){
-    await this.contactService.deletFeedbackOnDb(contact);
+    await this.contactService.deleteContactOnDb(contact);
     this.contacts = this.contacts?.filter((x)=> x.id != contact.id);
   }
 

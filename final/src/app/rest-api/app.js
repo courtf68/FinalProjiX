@@ -3,7 +3,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const feedRoutes = require('./routes/feed');
+const feedbackRoutes = require('./routes/feedback');
+const commentRoutes = require('./routes/comment');
+const contactRoutes = require('./routes/contact');
 
 const app = express();
 
@@ -17,11 +19,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/feed', feedRoutes);
+app.use('/feedback', feedbackRoutes);
+app.use('/comment', commentRoutes);
+app.use('/contact', contactRoutes);
 
 mongoose
   .connect(
-    'mongodb+srv://victorphan101:RjbdpVF8DR2tpkn3@cluster0.nqvv5.mongodb.net/Cluster0?retryWrites=true&w=majority'
+    'mongodb+srv://victor:gi7Ouh3KYyoa9E4F@cluster0.nqvv5.mongodb.net/Cluster0?retryWrites=true&w=majority'
+  
   )
   .then(() => {
     console.log('Connected to MongoDB');

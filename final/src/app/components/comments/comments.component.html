@@ -1,28 +1,45 @@
 <div class="text-center w-100 mt-5" style="background-color: azure; border-radius: 2rem;">
-<div class="container">
+<div class="container p-3">
+    <div class="card-title text-center mt-4">
+      <h3 class="card-title text-center mt-3">Project selected: {{projects[index].title}}</h3>
+      <hr>
+    </div>
     <div class="card-body p-5">
-           <h3 class="card-title text-center mt-3">Project selected: <!--{{receivedId}}--></h3>
-           <hr>
-   <form>
        <div class="form-group text-center">
-        <label for="inputField">Enter comments below!</label>
-       <input type="input" class="form-control mt-3" [(ngModel)]="comment" id="inputField" aria-describedby="input here" placeholder="Enter comments here">
-     
+          <label for="inputField">Enter comments below! How did you think we did?</label>
+          <div class="input-group my-3">
+            <input  type="text" class="form-control mt-3" id="comment" placeholder="Enter comments here" [(ngModel)]="comment.content">
+          </div>
         </div>
+        <button
+            *ngIf="!this.editing"
+            class="btn btn-primary mt-3"
+            (click)="addComments()"
+            [disabled]="this.comment?.id == null"
+            >
+            Add Comment
+            </button>
+        <button
+            *ngIf="this.editing"
+            class="btn btn-primary"
+            (click)="updateComment()"
+            [disabled]="this.comment?.id == null"
+            >
+            Update Post
+            </button>
         <button type="button" (click)="nextClicked()" class="btn btn-primary float-right mt-3">Next</button>
-   </form>
        </div>
 </div>
 </div>
 
 <div class="card mt-5">
     <div class="card-title text-center mt-3">
-      <h3>Posts from MongoDB</h3>
+      <h3>Past Comments</h3>
     </div>
   
     <div class="row">
       <div class="col text-center">
-        <button class="btn btn-secondary" (click)="viewComments()">
+        <button class="btn btn-secondary" (click)="fetchComment()">
           View Comments
         </button>
       </div>

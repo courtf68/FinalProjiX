@@ -13,8 +13,6 @@ import { FormsModule } from '@angular/forms';
 import { GridLayoutComponent } from './components/grid-layout/grid-layout.component';
 import { BackgroundComponent } from './components/background/background.component';
 import { FeedbackNavbarComponent } from './components/feedback-navbar/feedback-navbar.component';
-import { HistoryComponent } from './components/history/history.component';
-
 
 @NgModule({
   declarations: [
@@ -26,8 +24,7 @@ import { HistoryComponent } from './components/history/history.component';
     ScreenTwoComponent,
     GridLayoutComponent,
     BackgroundComponent,
-    FeedbackNavbarComponent,
-    HistoryComponent
+    FeedbackNavbarComponent
   ],
   imports: [
     BrowserModule,

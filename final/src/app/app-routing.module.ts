@@ -5,7 +5,6 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FeedbackNavbarComponent } from './components/feedback-navbar/feedback-navbar.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
-import { HistoryComponent } from './components/history/history.component';
 
 const routes: Routes = [
   {
@@ -23,10 +22,6 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
-  },
-  {
-    path: 'history',
-    component: HistoryComponent
   }
 ];
 
