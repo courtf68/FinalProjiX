@@ -6,11 +6,13 @@
    <form>
        <div class="form-group text-center">
         <label for="inputField">We'd love to hear from you!</label>
-       <input type="input" class="form-control mt-3" [(ngModel)]="contact" id="inputField" aria-describedby="input here" placeholder="Contact information here">
-     
+        <div class="input-group my-3">
+          <span class="input-group-text" id="basic-addon1">#</span>
+          <input type="input" class="form-control" [(ngModel)]="contact" id="inputField" aria-describedby="input here" placeholder="Contact information here">
+        </div>
         </div>
         <button type="button" (click)="onSubmit()" class="btn btn-primary float-right mt-3" data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop">Submit</button>
+        data-bs-target="#staticBackdrop">Submit </button>
    </form>
        </div>
 </div>
