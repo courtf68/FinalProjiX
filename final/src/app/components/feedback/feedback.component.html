@@ -1,10 +1,11 @@
-<div class="text-center w-100 mt-5" style="background-color: azure; border-radius: 2rem;">
-<div class="container p-3">
+<div class="container p-5">
+  <div class="text-center w-100" style="background-color: azure; border-radius: 2rem;">
+    <div class="container p-3">
       <div class="card-title text-center mt-4">
         <h3 class="card-title text-center mt-3">Project Selected: {{projects[index].title}} </h3>
         <hr>
       </div>
-     <div class="card-body p-5">
+      <div class="card-body p-5">
         <div class="form-group text-center">
             <label for="inputField">Provide feedback below!</label>
             <input type="text" class="form-control mt-3" id="feedback" placeholder="Enter feedback here" [(ngModel)]="feedback.content">
@@ -19,22 +20,21 @@
             </button>
         <button
             *ngIf="this.editing"
-            class="btn btn-primary"
+            class="btn btn-primary mt-3"
             (click)="updateFeedback()"
             [disabled]="this.feedback.content == null"
             >
             Update Post
             </button>
         <button type="submit" (click)="nextClicked()" class="btn btn-primary float-right mt-3">Next</button>
-        </div>
- </div>
-</div>
+      </div>
+    </div>
+  </div>
 
-<div class="card mt-5">
+  <div class="card mt-5">
     <div class="card-title text-center mt-3">
       <h3>Past Feedbacks</h3>
     </div>
-  
     <div class="row">
       <div class="col text-center">
         <button class="btn btn-secondary" (click)="fetchFeedback()">
@@ -42,14 +42,11 @@
         </button>
       </div>
     </div>
-  
     <div class="card-body">
-      <hr />
-  
+      <hr>
       <div class="row" *ngIf="this.feedbacks?.length == 0">
         <div class="col text-center">No Posts</div>
       </div>
-  
       <div class="accordion" id="accordionExample" *ngFor="let feedback of feedbacks">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
@@ -88,4 +85,7 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
 

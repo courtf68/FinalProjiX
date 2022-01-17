@@ -12,7 +12,7 @@ import { GridLayoutComponent } from '../grid-layout/grid-layout.component';
 })
 export class FeedbackComponent implements OnInit{
 
-  @Input() index:number = 0;
+  @Input() index:number=0;
   
   projects:Project[] = [{id:'Victor', title:"Project 1"}, {id:"Courtney", title:"Project 2"}, {id:"Cameron", title:"Project 3"}];
 
@@ -37,19 +37,17 @@ export class FeedbackComponent implements OnInit{
     this.feedback = new Feedback();  
   }
 
-    async fetchFeedback(){
-      this.feedbacks = []
+  async fetchFeedback(){
+    this.feedbacks = []
 
-      let res: any = await this.feedbackService.getFeedback();
-      console.log('This is the res from feedback call', res);
+    let res: any = await this.feedbackService.getFeedback();
+    console.log('This is the res from feedback call', res);
 
-      for (let i = 0; i<res.posts.length; i++){
-        const feedback = new Feedback();
-
-        feedback.id = res.posts[i]._id;
-        feedback.content = res.posts[i].content;
-
-        this.feedbacks.push(feedback);
+    for (let i = 0; i<res.posts.length; i++){
+      const feedback = new Feedback();
+      feedback.id = res.posts[i]._id;
+      feedback.content = res.posts[i].content;
+      this.feedbacks.push(feedback);
       }
     }
 

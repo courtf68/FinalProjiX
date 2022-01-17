@@ -11,7 +11,7 @@ import { CommentsService } from 'src/app/services/comments.service';
 })
 export class CommentsComponent implements OnInit {
 
-  @Input() index:number =0;
+  @Input() index:number=0;
   projects: Project[] = [{id:'Victor', title:"Project 1"}, {id:"Courtney", title:"Project 2"}, {id:"Cameron", title:"Project 3"}];
 
   comment:Comment = new Comment();
@@ -28,24 +28,25 @@ export class CommentsComponent implements OnInit {
   }
 
   async addComments(){
+    this.comment.id = "Project 1";
     await this.commentService.addCommentsToDb(this.comment);
+    console.log(this.comment);
     this.comments.push(this.comment);
     this.comment = new Comment();  
   }
 
-    async fetchComment(){
-      this.comments = []
+  async fetchComment(){
+    this.comments = []
 
-      let res: any = await this.commentService.getComments();
+    let res: any = await this.commentService.getComments();
 
-      for (let i = 0; i<res.length; i++){
-        const comment = new Comment();
-
-        comment.id = res.posts[i]._id;
-        comment.content = res.posts[i].content;
-        this.comments.push(comment);
-      }
+    for (let i = 0; i<res.posts.length; i++){
+      const comment = new Comment();
+      comment.id = res.posts[i]._id;
+      comment.content = res.posts[i].content;
+      this.comments.push(comment);
     }
+  }
 
   editComment(comment: Comment){
     this.editing = true;

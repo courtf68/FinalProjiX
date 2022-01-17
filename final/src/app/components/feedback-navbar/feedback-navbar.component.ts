@@ -14,21 +14,4 @@ export class FeedbackNavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  // feedbackClicked(){
-  //   this.router.navigate(['feedback']);
-  // }
-
-  // commentClicked(){
-  //   this.router.navigate(['comment']);
-  // }
-
-  // contactClicked(){
-  //   this.router.navigate(['contact']);
-  // }
-
-  // historyClicked(){
-  //   this.router.navigate(['history']);
-  // }
-
 }

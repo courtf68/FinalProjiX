@@ -11,11 +11,6 @@ import { Project } from 'src/app/models/project';
 })
 export class GridLayoutComponent implements OnInit {
 
-  //@input projects
-  //@Input() projects?:Project[];
-
-  //length = this.projects?.length;
-
   index:number = 0;
 
   project:Project = new Project();

@@ -13,7 +13,7 @@ export class CommentsService {
 
   addCommentsToDb(comment: Comment) {
     this.http
-      .post(this.url + '/comment/comments', {
+      .post(this.url + '/comment/comment', {
         id: comment.id,
         content: comment.content,
       })

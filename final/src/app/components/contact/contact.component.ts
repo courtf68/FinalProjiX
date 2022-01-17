@@ -11,7 +11,7 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 export class ContactComponent implements OnInit {
 
-  @Input() index:number = 0;
+  @Input() index:number=0;
   projects:Project[] = [{id:'Victor', title:"Project 1"}, {id:"Courtney", title:"Project 2"}, {id:"Cameron", title:"Project 3"}];
 
   contact:Contact = new Contact();
@@ -22,27 +22,33 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  doneClicked(){
+    this.router.navigate(['']);
+  }
 
   async addContact(){
+    this.contact.id = "Project 1";
     await this.contactService.addContactToDb(this.contact);
+    console.log(this.contact);
     this.contacts.push(this.contact);
     this.contact = new Contact();  
   }
 
-    async fetchContact(){
-      this.contacts = []
+  async fetchContact(){
+    this.contacts = []
 
-      let res: any = await this.contactService.getContact();
+    let res: any = await this.contactService.getContact();
 
-      for (let i = 0; i<res.length; i++){
-        const contact = new Contact();
+    for (let i = 0; i<res.posts.length; i++){
+      const contact = new Contact();
 
-        contact.id = res.posts[i]._id;
-        contact.content = res.posts[i].content;
+      contact.id = res.posts[i]._id;
+      contact.content = res.posts[i].content;
 
-        this.contacts.push(contact);
+      this.contacts.push(contact);
       }
-    }
+  }
 
   editContact(contact:Contact){
     this.editing = true;
